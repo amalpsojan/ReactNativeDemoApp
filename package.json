@@ -8,8 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "postinstall": "husky install",
-    "prepare": "husky install"
+    "fix-lint": "eslint --fix .",
+    "prepare": "husky install && npx husky add .husky/pre-commit 'npx eslint --fix . && npx eslint . --ext .js,.jsx,.ts,.tsx' && git add .husky/pre-commit && npx husky add .husky/commit-msg 'npx commitlint --edit $1' && git add .husky/commit-msg"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -49,11 +49,5 @@
       "json",
       "node"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint",
-      "commit-msg": "commitlint --edit $1"
-    }
   }
 }
