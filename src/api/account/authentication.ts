@@ -1,4 +1,4 @@
-import {LoginRequest, RefreshTokenRequest} from '@app/types/account';
+import {LoginRequest, UserToken} from '@app/types/account';
 
 export const login = ({username, password}: LoginRequest) => {
   if (username && password) {
@@ -7,7 +7,7 @@ export const login = ({username, password}: LoginRequest) => {
 
 export const logout = () => {};
 
-export const refreshToken = ({token}: RefreshTokenRequest) => {
+export const refreshToken = (token: UserToken) => {
   if (token) {
   }
 };

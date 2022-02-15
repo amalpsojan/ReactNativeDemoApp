@@ -1,9 +1,9 @@
 import {UserToken} from '@app/types/account';
 
-const saveUser = (tokenData: UserToken) => {
+const saveUser = (token: UserToken) => {
   return {
     type: 'account/saveUser',
-    payload: tokenData,
+    payload: token,
   };
 };
 

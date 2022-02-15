@@ -1,3 +1,20 @@
-import accountReducer from './account';
+import {combineReducers} from '@reduxjs/toolkit';
+import {persistReducer} from 'redux-persist';
 
-export {accountReducer};
+import {ReduxStorage} from '@app/services';
+
+import accountReducer from './account';
+import settingsReducer from './settings';
+
+const accountPersistConfig = {
+  key: 'account',
+  version: 1,
+  storage: ReduxStorage,
+};
+
+const reducers = combineReducers({
+  account: persistReducer(accountPersistConfig, accountReducer),
+  settings: settingsReducer,
+});
+
+export default reducers;
