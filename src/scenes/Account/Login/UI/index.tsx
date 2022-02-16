@@ -67,7 +67,7 @@ const LoginUI = ({
             onPress={() => console.log('Forgot Password?..')}
           />
 
-          <Button title={'LOGIN'} onPress={() => console.log('onLogin..')} />
+          <Button title={'LOGIN'} onPress={onLogin} />
 
           <Button.LinkButton
             title={'Signup'}

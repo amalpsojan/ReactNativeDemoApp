@@ -10,8 +10,6 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["src/*"],
-
       "@app/api/*": ["src/api/*"],
       "@app/api": ["src/api/index"],
 
@@ -27,8 +25,8 @@
       "@app/hooks/*": ["src/hooks/*"],
       "@app/hooks": ["src/hooks/index"],
 
-      "@app/i18n/*": ["src/services/*"],
-      "@app/i18n": ["src/services/index"],
+      "@app/i18n/*": ["src/i18n/*"],
+      "@app/i18n": ["src/i18n/index"],
 
       "@app/navigation/*": ["src/navigation/*"],
       "@app/navigation": ["src/navigation/index"],
@@ -48,7 +46,10 @@
       "@app/types/*": ["src/types/*"],
 
       "@app/utils/*": ["src/utils/*"],
-      "@app/utils": ["src/utils/index"]
+      "@app/utils": ["src/utils/index"],
+
+      "@app/mock/*": ["src/mock/*"],
+      "@app/mock": ["src/mock/index"]
     }
   }
 }
