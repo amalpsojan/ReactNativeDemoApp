@@ -1,5 +1,10 @@
 import {createServer, Model, Response} from 'miragejs';
-import {CreateUser} from '@app/types/account';
+import {RegisterUser, UserToken} from '@app/types/account';
+import {generateToken} from '../utils';
+
+type CreateUser = RegisterUser & {
+  token: UserToken;
+};
 
 declare global {
   interface Window {
@@ -20,34 +25,38 @@ function makeServer({environment = 'development'} = {}) {
         name: 'Batman',
         username: 'batman@test.com',
         password: '12345678',
-        token: 'batman@test.com-token',
+        token: generateToken(),
       } as CreateUser);
       server.create('user', {
         name: 'Superman',
         username: 'superman@test.com',
         password: '12345678',
-        token: 'superman@test.com-token',
+        token: generateToken(),
       } as CreateUser);
       server.create('user', {
         name: 'Wonder Woman',
         username: 'wonderwoman@test.com',
         password: '12345678',
-        token: 'wonderwoman@test.com-token',
+        token: generateToken(),
       } as CreateUser);
     },
 
     routes() {
-      // this.get('/api/users', schema => {
-      //   return schema.users.all();
-      // });
-
       this.post('api/login', (schema, request) => {
         const attrs = JSON.parse(request.requestBody);
         let errors = {message: '', username: '', password: ''};
 
         if (!attrs.username || !attrs.password) {
-          errors.username = !attrs.username ? 'username cannot be blank' : '';
-          errors.password = !attrs.password ? 'password cannot be blank' : '';
+          errors = {
+            ...errors,
+            username: !attrs.username ? 'username cannot be blank' : '',
+            password: !attrs.password ? 'password cannot be blank' : '',
+          };
+
+          errors = {
+            ...errors,
+            message: `${errors.username + ' ' + errors.password}`,
+          };
 
           return new Response(400, {}, {errors});
         }
@@ -65,14 +74,44 @@ function makeServer({environment = 'development'} = {}) {
         }
       });
 
-      this.get('mockserver/api/reminders', schema => {
-        return schema.reminders.all();
+      this.get('api/profile', (schema, request) => {
+        let token = '';
+
+        const isExistToken = request.requestHeaders.Authorization;
+
+        if (isExistToken) {
+          token = isExistToken.replace('Bearer ', '');
+        }
+
+        const isUserExist = isExistToken
+          ? schema.users.findBy({
+              token,
+            })
+          : null;
+
+        if (!isExistToken || !token || !isUserExist) {
+          return new Response(
+            401,
+            {},
+            {errors: {message: 'Authorization required'}},
+          );
+        }
+
+        return new Response(
+          200,
+          {},
+          {
+            id: isUserExist.id,
+            name: isUserExist.name,
+            username: isUserExist.username,
+          },
+        );
       });
 
-      this.post('mockserver/api/reminders', (schema, request) => {
-        let attrs = JSON.parse(request.requestBody);
+      this.post('api/register', (schema, request) => {
+        const attrs = JSON.parse(request.requestBody);
 
-        return schema.reminders.create(attrs);
+        return schema.users.create(attrs);
       });
     },
   });

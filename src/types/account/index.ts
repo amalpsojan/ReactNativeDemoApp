@@ -1,41 +1,48 @@
-type UserToken = string;
+import {RequestConfig, RequestResponse} from '@app/api/client';
 
-type User = {
+export type UserToken = string;
+
+export type User = {
   id: string;
   name: string;
   username: string;
 };
 
-type CreateUser = User & {
+export type RegisterUser = User & {
   password: string;
-  token: string;
 };
 
-type Users = {
+export type Users = {
   people: User[];
 };
 
-type LoginRequest = {
-  username: string;
-  password: string;
+export type LoginRequest = RequestConfig & {
+  args: {
+    username: string;
+    password: string;
+  };
 };
 
-type LoginRequestError = {
+export type LogoutRequest = RequestConfig & {};
+
+export type ProfileRequest = RequestConfig & {};
+
+export type RefreshTokenRequest = RequestConfig & {};
+
+export type RegisterRequest = RequestConfig & {};
+
+export type LoginRequestError = {
   username: string;
   password: string;
   message: string;
 };
 
-type LoginRequestResponse = {
-  token: UserToken;
+export type ProfileRequestError = {
+  message: string;
 };
 
-export {
-  LoginRequest,
-  LoginRequestError,
-  LoginRequestResponse,
-  UserToken,
-  User,
-  Users,
-  CreateUser,
-};
+export type LoginRequestResponse = RequestResponse<{
+  token: UserToken;
+}>;
+
+export type ProfileRequestResponse = RequestResponse<User>;

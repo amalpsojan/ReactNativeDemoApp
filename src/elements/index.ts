@@ -1,5 +1,5 @@
-import Input from './Input';
-import Text from './Text';
-import Button from './Button';
+import Input from './input';
+import Text from './text';
+import Button from './button';
 
 export {Input, Text, Button};
