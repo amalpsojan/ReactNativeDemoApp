@@ -2,4 +2,4 @@
 
 ## Libraries
 
-- `Redux`
+- `[Redux](http://redux-toolkit.js.org/)`
