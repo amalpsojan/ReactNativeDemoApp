@@ -48,8 +48,8 @@ module.exports = function (api) {
             '@app/utils/*': ['./src/utils'],
             '@app/utils': ['./src/utils/index'],
 
-            '@app/mock/*': ['./src/mock'],
-            '@app/mock': ['./src/mock/index'],
+            '@mock/*': ['./@mock'],
+            '@mock': ['./@mock/index'],
           },
           cwd: 'babelrc',
         },

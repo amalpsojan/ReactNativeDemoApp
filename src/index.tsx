@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {Login} from '@app/scenes';
+import {Profile} from '@app/scenes';
 
 const Root = () => {
-  return <Login />;
+  return <Profile />;
 };
 
 export default Root;

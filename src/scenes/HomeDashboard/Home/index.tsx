@@ -3,7 +3,7 @@ import HomeUI from './UI';
 
 const Home = () => {
   return (
-    <HomeUI advertisement={{visible: true, title: {visible: true, text: ''}}} />
+    <HomeUI profile={{id: 1, username: 'tst@gfdfsf', name: 'fwefewfwef'}} />
   );
 };
 

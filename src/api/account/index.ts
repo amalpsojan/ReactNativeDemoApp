@@ -1,3 +1,3 @@
-import {refreshToken, login, logout} from './authentication';
+import {refreshToken, login, logout, profile} from './authentication';
 
-export default {login, logout, refreshToken};
+export default {login, logout, refreshToken, profile};

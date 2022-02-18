@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomButton, {IButton} from './button';
+import CustomButton, {IButton} from './text';
 import LinkButton from './link-button';
 
 const Button = (props: JSX.IntrinsicAttributes & IButton) => (
