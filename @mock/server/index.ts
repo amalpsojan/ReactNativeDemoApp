@@ -1,5 +1,6 @@
 import {createServer, Model, Response} from 'miragejs';
-import {RegisterUser, UserToken} from '@app/types/account';
+import {UserToken} from '../types/account/models';
+import {RegisterUser} from '../types/account/api';
 import {generateToken} from '../utils';
 
 type CreateUser = RegisterUser & {
@@ -26,19 +27,19 @@ function makeServer({environment = 'development'} = {}) {
         username: 'batman@test.com',
         password: '12345678',
         token: generateToken(),
-      } as CreateUser);
+      } as object);
       server.create('user', {
         name: 'Superman',
         username: 'superman@test.com',
         password: '12345678',
         token: generateToken(),
-      } as CreateUser);
+      } as object);
       server.create('user', {
         name: 'Wonder Woman',
         username: 'wonderwoman@test.com',
         password: '12345678',
         token: generateToken(),
-      } as CreateUser);
+      } as object);
     },
 
     routes() {
@@ -61,13 +62,22 @@ function makeServer({environment = 'development'} = {}) {
           return new Response(400, {}, {errors});
         }
 
-        const isExist = schema.users.findBy({
+        const isUserExist = schema.users.findBy({
           username: attrs.username,
           password: attrs.password,
         });
 
-        if (isExist) {
-          return new Response(200, {}, {token: isExist.token});
+        if (isUserExist) {
+          return new Response(
+            200,
+            {},
+            {
+              id: isUserExist.id,
+              name: isUserExist.name,
+              username: isUserExist.username,
+              token: isUserExist.token,
+            },
+          );
         } else {
           errors.message = 'invalid username or password';
           return new Response(401, {}, {errors});

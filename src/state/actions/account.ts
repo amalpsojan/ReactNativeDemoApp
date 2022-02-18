@@ -1,10 +1,16 @@
-import {UserToken} from '@app/types/account';
+import {UserToken} from '@app/types/account/models';
+import {Account} from '../types';
 
-const saveUser = (token: UserToken) => {
+export const saveUser = (token: UserToken) => {
   return {
-    type: 'account/saveUser',
+    type: Account.saveUser,
     payload: token,
   };
 };
 
-export {saveUser};
+export const removeUser = () => {
+  return {
+    type: Account.removeUser,
+    payload: null,
+  };
+};

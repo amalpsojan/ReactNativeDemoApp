@@ -3,7 +3,7 @@ import {
   LogoutRequest,
   ProfileRequest,
   RefreshTokenRequest,
-} from '@app/types/account';
+} from '@app/types/account/api';
 import ApiClient from '../client';
 
 export const login = ({...config}: LoginRequest) => {

@@ -11,12 +11,12 @@ type RequestError = AxiosError & {};
 type RequestConfig = AxiosRequestConfig & {
   args?: any;
   label?: string;
-  showResponseLog?: boolean;
+  showLog?: boolean;
   onStart?: () => void;
   onSuccess: (response: RequestResponse) => void;
   onError: (error: RequestError) => void;
   onFinished?: () => void;
-  isLoading?: (value: boolean) => void;
+  onLoading?: (value: boolean) => void;
 };
 
 const dataSupportedMethods = [
@@ -35,18 +35,18 @@ const ApiClient = ({
   label = '',
   args,
   method = 'GET',
-  showResponseLog = false,
+  showLog = false,
   onStart = () => {},
   onFinished = () => {},
   onError = () => {},
-  isLoading = () => {},
+  onLoading = () => {},
   onSuccess = () => {},
   data,
   params,
   ...config
 }: RequestConfig) => {
   onStart();
-  isLoading(true);
+  onLoading(true);
 
   let argKey = '';
 
@@ -65,7 +65,7 @@ const ApiClient = ({
     [argKey]: args,
   })
     .then(response => {
-      if (showResponseLog) {
+      if (showLog) {
         console.log(`API Fetch ${label} Success...`);
         console.log('API Fetch Response', JSON.stringify(response, 0, 10));
       }
@@ -75,7 +75,7 @@ const ApiClient = ({
       onError(error);
     })
     .finally(() => {
-      isLoading(false);
+      onLoading(false);
       onFinished();
     });
 };

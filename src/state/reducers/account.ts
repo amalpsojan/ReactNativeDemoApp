@@ -1,18 +1,30 @@
-const initialState = {value: 0};
+import {ReducerAction} from '@app/types/other';
+import {Account} from '../types';
 
-//TODO fix action type later
-const accountReducer = (state = initialState, action: any) => {
-  // Check to see if the reducer cares about this action
-  if (action.type === 'counter/increment') {
-    // If so, make a copy of `state`
-    return {
-      ...state,
-      // and update the copy with the new value
-      value: state.value + 1,
-    };
+const initialState = {
+  id: undefined,
+  name: undefined,
+  username: undefined,
+  token: undefined,
+};
+
+const accountReducer = (state = initialState, action: ReducerAction) => {
+  switch (action.type) {
+    case Account.saveUser:
+      return {
+        ...state,
+        token: action.paylaod.token,
+        id: action.paylaod.id,
+        name: action.paylaod.name,
+        username: action.paylaod.username,
+      };
+
+    case Account.removeUser:
+      return {...initialState};
+
+    default:
+      return state;
   }
-  // otherwise return the existing state unchanged
-  return state;
 };
 
 export default accountReducer;

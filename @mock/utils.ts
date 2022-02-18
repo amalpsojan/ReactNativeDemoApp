@@ -1,4 +1,4 @@
-function generateToken(max: number = 25) {
+const generateToken = (max: number = 25): string => {
   var s = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var n = s.length - 1;
   var token = '';
@@ -6,6 +6,6 @@ function generateToken(max: number = 25) {
     token += s.charAt(Math.floor(Math.random() * n));
   }
   return token;
-}
+};
 
 export {generateToken};

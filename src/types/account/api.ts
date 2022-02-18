@@ -1,20 +1,5 @@
 import {RequestConfig, RequestResponse} from '@app/api/client';
-
-export type UserToken = string;
-
-export type User = {
-  id: string;
-  name: string;
-  username: string;
-};
-
-export type RegisterUser = User & {
-  password: string;
-};
-
-export type Users = {
-  people: User[];
-};
+import {User, UserToken} from './models';
 
 export type LoginRequest = RequestConfig & {
   args: {
@@ -41,8 +26,10 @@ export type ProfileRequestError = {
   message: string;
 };
 
-export type LoginRequestResponse = RequestResponse<{
-  token: UserToken;
-}>;
+export type LoginRequestResponse = RequestResponse<
+  User & {
+    token: UserToken;
+  }
+>;
 
 export type ProfileRequestResponse = RequestResponse<User>;
