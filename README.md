@@ -1,5 +1,8 @@
 # React Native Demo App
 
+## Architecture
+This project is using [MVVM Architecture](https://www.expertappdevs.com/blog/react-native-with-mvvm)
+
 ## Dependencies
 
 #### [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
@@ -9,8 +12,9 @@ The Redux Toolkit package is intended to be the standard way to write [Redux](ht
 Axios allows us to communicate with APIs easily in our React apps. Though this can also be achieved by other methods like fetch or AJAX, Axios can provide a little more functionality that goes a long way with applications that use React.
 
 #### [MMKV Storage](https://github.com/mrousavy/react-native-mmkv)
--MMKV is an efficient, small mobile key-value storage framework developed by WeChat. See Tencent/MMKV for more information
--react-native-mmkv is a library that allows you to easily use MMKV inside your React Native applications. It provides fast and direct bindings to the native C++ library which are accessible through a simple JS API.
+MMKV is an efficient, small mobile key-value storage framework developed by WeChat. See Tencent/MMKV for more information
+
+react-native-mmkv is a library that allows you to easily use MMKV inside your React Native applications. It provides fast and direct bindings to the native C++ library which are accessible through a simple JS API.
 
 ## Dev Dependencies
 
