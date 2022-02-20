@@ -28,6 +28,9 @@ module.exports = function (api) {
             '@app/i18n/*': ['./src/i18n'],
             '@app/i18n': ['./src/i18n/index'],
 
+            '@app/models/*': ['./src/models'],
+            '@app/models': ['./src/models/index'],
+
             '@app/navigation/*': ['./src/navigation'],
             '@app/navigation': ['./src/navigation/index'],
 
@@ -47,9 +50,6 @@ module.exports = function (api) {
 
             '@app/utils/*': ['./src/utils'],
             '@app/utils': ['./src/utils/index'],
-
-            '@mock/*': ['./@mock'],
-            '@mock': ['./@mock/index'],
           },
           cwd: 'babelrc',
         },

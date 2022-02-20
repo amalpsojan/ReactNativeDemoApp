@@ -1,21 +1,11 @@
-import React, {memo, useState} from 'react';
-import LoginUI from './UI';
+import React, {memo} from 'react';
+import LoginViewController from './ViewController';
+import LoginViewModel from './ViewModel';
 
 const Login = () => {
-  const [email, onChangeEmail] = useState('batman@test.com');
-  const [password, onChangePassword] = useState('12345678');
+  const viewModel = new LoginViewModel();
 
-  return (
-    <LoginUI
-      {...{
-        email,
-        password,
-        onChangeEmail,
-        onChangePassword,
-        onLogin: () => {},
-      }}
-    />
-  );
+  return <LoginViewController viewModel={viewModel} />;
 };
 
 export default memo(Login);

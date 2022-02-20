@@ -13,21 +13,17 @@ interface ILoginUI {
   onLogin: () => void;
 }
 
-const LoginUI = ({
+const LoginView = ({
   email,
   password,
   onChangeEmail,
   onChangePassword,
-  ...props
+  onLogin,
 }: ILoginUI) => {
   const {colors} = useTheme();
 
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
-
-  const onLogin = () => {
-    props.onLogin();
-  };
 
   return (
     <SafeAreaView
@@ -35,7 +31,7 @@ const LoginUI = ({
         styles.screenContainer,
         {backgroundColor: colors.backgroundColor},
       ]}
-      testID="login-ui-scene">
+      testID="login-view-scene">
       <View style={[styles.container]}>
         <View>
           <Text style={[styles.logo, {color: colors.primaryColor}]}>
@@ -80,7 +76,7 @@ const LoginUI = ({
   );
 };
 
-export default memo(LoginUI);
+export default memo(LoginView);
 
 const styles = StyleSheet.create({
   screenContainer: {

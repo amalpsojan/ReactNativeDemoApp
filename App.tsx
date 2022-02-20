@@ -5,7 +5,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {store, persistor} from '@app/state';
 
 import Root from './src';
-import {makeServer} from '@mock';
+import {makeServer} from 'react-mock-lib';
 
 if (process.env.NODE_ENV === 'development') {
   if (window?.server) {
