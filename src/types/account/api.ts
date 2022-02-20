@@ -1,11 +1,13 @@
 import {RequestConfig, RequestResponse} from '@app/api/client';
 import {User, UserToken} from './models';
 
+export type LoginArgs = {
+  username: string;
+  password: string;
+};
+
 export type LoginRequest = RequestConfig & {
-  args: {
-    username: string;
-    password: string;
-  };
+  args: LoginArgs;
 };
 
 export type LogoutRequest = RequestConfig & {};

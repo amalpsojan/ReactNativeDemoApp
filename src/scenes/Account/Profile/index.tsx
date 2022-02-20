@@ -1,8 +1,11 @@
 import React, {memo} from 'react';
-import ProfileUI from './UI';
+import ProfileViewController from './ViewController';
+import ProfileViewModel from './ViewModel';
 
-const Home = () => {
-  return <ProfileUI />;
+const Profile = () => {
+  const viewModel = new ProfileViewModel();
+
+  return <ProfileViewController viewModel={viewModel} />;
 };
 
-export default memo(Home);
+export default memo(Profile);

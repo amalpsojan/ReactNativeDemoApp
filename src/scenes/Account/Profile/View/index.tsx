@@ -4,7 +4,7 @@ import {Button, Text} from '@app/elements';
 
 import {useTheme} from '@app/hooks';
 
-const ProfileUI = () => {
+const ProfileView = () => {
   const {colors} = useTheme();
 
   return (
@@ -17,7 +17,7 @@ const ProfileUI = () => {
           styles.screenContainer,
           {backgroundColor: colors.backgroundColor},
         ]}
-        testID="profile-ui-scene">
+        testID="profile-view-scene">
         <View style={styles.container}>
           <View
             style={[
@@ -45,7 +45,7 @@ const ProfileUI = () => {
   );
 };
 
-export default memo(ProfileUI);
+export default memo(ProfileView);
 
 const styles = StyleSheet.create({
   statusBar: {

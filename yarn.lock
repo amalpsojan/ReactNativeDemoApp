@@ -6285,9 +6285,11 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-"react-mock-lib@link:../mock-lib":
-  version "0.0.0"
-  uid ""
+"react-mock-lib@git+ssh://git@github.com:amalpsojan/mock-lib.git#0.0.2":
+  version "0.0.2"
+  resolved "git+ssh://git@github.com:amalpsojan/mock-lib.git#3de3a71cb00a3f679e85a7e77e1ea561a1278e98"
+  dependencies:
+    miragejs "^0.1.43"
 
 react-native-codegen@^0.0.7:
   version "0.0.7"
