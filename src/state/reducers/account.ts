@@ -10,7 +10,7 @@ const initialState = {
 
 const accountReducer = (state = initialState, action: ReducerAction) => {
   switch (action.type) {
-    case Account.saveUser:
+    case Account.SAVE_USER:
       return {
         ...state,
         token: action.payload.token,
@@ -19,7 +19,7 @@ const accountReducer = (state = initialState, action: ReducerAction) => {
         username: action.payload.username,
       };
 
-    case Account.removeUser:
+    case Account.REMOVE_USER:
       return {...initialState};
 
     default:

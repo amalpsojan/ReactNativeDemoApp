@@ -5,14 +5,14 @@ type User = _User & {token: UserToken};
 
 const saveUser = (user: User) => {
   return {
-    type: Account.saveUser,
+    type: Account.SAVE_USER,
     payload: user,
   };
 };
 
 const removeUser = () => {
   return {
-    type: Account.removeUser,
+    type: Account.REMOVE_USER,
     payload: null,
   };
 };

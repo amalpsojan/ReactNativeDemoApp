@@ -1,6 +1,6 @@
 const Account = {
-  saveUser: 'account/saveUser',
-  removeUser: 'account/removeUser',
+  SAVE_USER: 'account/saveUser',
+  REMOVE_USER: 'account/removeUser',
 };
 
 export default Account;
