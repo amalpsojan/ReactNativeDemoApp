@@ -1,5 +1,5 @@
-import {User} from './models';
+import {User, UserToken} from './models';
 
 export type AccountState = {
-  account: User & {};
+  account: User & {token: UserToken};
 };

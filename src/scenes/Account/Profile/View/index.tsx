@@ -1,10 +1,14 @@
 import React, {memo, Fragment} from 'react';
 import {StyleSheet, View, Image, SafeAreaView} from 'react-native';
-import {Button, Text} from '@app/elements';
+import {Button, Text} from '@appElements';
 
-import {useTheme} from '@app/hooks';
+import {useTheme} from '@appHooks';
 
-const ProfileView = () => {
+interface IProfileUI {
+  onLogout: () => void;
+}
+
+const ProfileView = ({onLogout}: IProfileUI) => {
   const {colors} = useTheme();
 
   return (
@@ -36,7 +40,7 @@ const ProfileView = () => {
               <Text>Mobile developer</Text>
 
               <Button title={'Option 1'} onPress={() => {}} />
-              <Button title={'Option 2'} onPress={() => {}} />
+              <Button title={'Logout'} onPress={onLogout} />
             </View>
           </View>
         </View>

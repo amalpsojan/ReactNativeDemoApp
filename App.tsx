@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
-import {store, persistor} from '@app/state';
+import {store, persistor} from '@appState';
 
 import Root from './src';
 import {makeServer} from 'react-mock-lib';

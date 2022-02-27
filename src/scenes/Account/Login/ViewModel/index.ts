@@ -1,4 +1,4 @@
-import {LoginArgs} from '@app/types/account/api';
+import {LoginArgs} from '@appTypes/account/api';
 import LoginModel from '../Model';
 
 class LoginViewModel {
@@ -9,18 +9,7 @@ class LoginViewModel {
   }
 
   login = (args: LoginArgs): void => {
-    if (this.isValidUserName(args.username)) {
-      this.model.login(args);
-    }
-  };
-
-  isValidUserName = (username: string): boolean => {
-    //check valid username or not
-    return !!username;
-  };
-
-  setLoginError = (): void => {
-    this.model.setLoginError();
+    this.model.login(args);
   };
 }
 

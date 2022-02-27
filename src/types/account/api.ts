@@ -1,4 +1,4 @@
-import {RequestConfig, RequestResponse} from '@app/api/client';
+import {RequestConfig, RequestResponse} from '@appApi/client';
 import {User, UserToken} from './models';
 
 export type LoginArgs = {

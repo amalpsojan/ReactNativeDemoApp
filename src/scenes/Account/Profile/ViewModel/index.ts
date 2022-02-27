@@ -10,6 +10,10 @@ class ProfileViewModel {
   getUser = (): string => {
     return this.model.getUser();
   };
+
+  logout = (): void => {
+    this.model.logout();
+  };
 }
 
 export default ProfileViewModel;

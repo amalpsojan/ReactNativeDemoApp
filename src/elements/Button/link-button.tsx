@@ -7,8 +7,8 @@ import {
   StyleProp,
   TextStyle,
 } from 'react-native';
-import {useTheme} from '@app/hooks';
-import {Text} from '@app/elements';
+import {useTheme} from '@appHooks';
+import {Text} from '@appElements';
 
 export interface ILinkButton extends PressableProps {
   style?: StyleProp<ViewStyle>;

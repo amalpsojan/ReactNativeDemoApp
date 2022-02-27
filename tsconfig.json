@@ -10,46 +10,47 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@app/api/*": ["src/api/*"],
-      "@app/api": ["src/api/index"],
+      "@appApi/*": ["src/api/*"],
+      "@appApi": ["src/api"],
 
-      "@app/components/*": ["src/components/*"],
-      "@app/components": ["src/components/index"],
+      "@appComponents/*": ["src/components/*"],
+      "@appComponents": ["src/components"],
 
-      "@app/configs/*": ["src/configs/*"],
-      "@app/configs": ["src/configs/index"],
+      "@appConfigs/*": ["src/configs/*"],
+      "@appConfigs": ["src/configs"],
 
-      "@app/elements/*": ["src/elements/*"],
-      "@app/elements": ["src/elements/index"],
+      "@appElements/*": ["src/elements/*"],
+      "@appElements": ["src/elements"],
 
-      "@app/hooks/*": ["src/hooks/*"],
-      "@app/hooks": ["src/hooks/index"],
+      "@appHooks/*": ["src/hooks/*"],
+      "@appHooks": ["src/hooks"],
 
-      "@app/i18n/*": ["src/i18n/*"],
-      "@app/i18n": ["src/i18n/index"],
+      "@appI18n/*": ["src/i18n/*"],
+      "@appI18n": ["src/i18n"],
 
-      "@app/models/*": ["src/models/*"],
-      "@app/models": ["src/models/index"],
+      "@appModels/*": ["src/models/*"],
+      "@appModels": ["src/models"],
 
-      "@app/navigation/*": ["src/navigation/*"],
-      "@app/navigation": ["src/navigation/index"],
+      "@appNavigation/*": ["src/navigation/*"],
+      "@appNavigation": ["src/navigation"],
 
-      "@app/scenes/*": ["src/scenes/*"],
-      "@app/scenes": ["src/scenes/index"],
+      "@appScenes/*": ["src/scenes/*"],
+      "@appScenes": ["src/scenes"],
 
-      "@app/services/*": ["src/services/*"],
-      "@app/services": ["src/services/index"],
+      "@appServices/*": ["src/services/*"],
+      "@appServices": ["src/services"],
 
-      "@app/state/*": ["src/state/*"],
-      "@app/state": ["src/state/index"],
+      "@appState/*": ["src/state/*"],
+      "@appState": ["src/state"],
+      "@appState/actions": ["src/state/actions"],
 
-      "@app/theme/*": ["src/theme/*"],
-      "@app/theme": ["src/theme/index"],
+      "@appTheme/*": ["src/theme/*"],
+      "@appTheme": ["src/theme"],
 
-      "@app/types/*": ["src/types/*"],
+      "@appTypes/*": ["src/types/*"],
 
-      "@app/utils/*": ["src/utils/*"],
-      "@app/utils": ["src/utils/index"]
+      "@appUtils/*": ["src/utils/*"],
+      "@appUtils": ["src/utils"],
     }
   }
 }

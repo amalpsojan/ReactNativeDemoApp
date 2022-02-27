@@ -1,5 +1,5 @@
 import {AxiosRequestConfig, AxiosError, AxiosResponse} from 'axios';
-import {Axios} from '@app/services';
+import {Axios} from '@appServices';
 
 interface RequestResponse<T = any, D = any> extends AxiosResponse {
   data: T;

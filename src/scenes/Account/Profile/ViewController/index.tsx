@@ -4,14 +4,16 @@ import ProfileView from '../View';
 type ProfileViewControllerType = {
   viewModel: {
     getUser: () => string;
+    logout: () => void;
   };
 };
 
-const ProfileViewController = ({
-  //eslint-disable-next-line @typescript-eslint/no-unused-vars
-  viewModel,
-}: ProfileViewControllerType) => {
-  return <ProfileView />;
+const ProfileViewController = ({viewModel}: ProfileViewControllerType) => {
+  const onLogout = () => {
+    viewModel.logout();
+  };
+
+  return <ProfileView onLogout={onLogout} />;
 };
 
 export default memo(ProfileViewController);

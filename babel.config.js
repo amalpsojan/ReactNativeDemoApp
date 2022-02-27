@@ -8,48 +8,45 @@ module.exports = function (api) {
       [
         'module-resolver',
         {
-          extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
+          root: ['.'],
+          extensions: [
+            '.ios.js',
+            '.android.js',
+            '.js',
+            '.ts',
+            '.tsx',
+            '.jsx',
+            '.json',
+          ],
           alias: {
-            '@app/api/*': ['./src/api'],
-            '@app/api': ['./src/api/index'],
+            '@appApi': ['./src/api'],
 
-            '@app/components/*': ['./src/components'],
-            '@app/components': ['./src/components/index'],
+            '@appComponents': ['./src/components'],
 
-            '@app/configs/*': ['./src/configs'],
-            '@app/configs': ['./src/configs/index'],
+            '@appConfigs': ['./src/configs'],
 
-            '@app/elements/*': ['./src/elements'],
-            '@app/elements': ['./src/elements/index'],
+            '@appElements': ['./src/elements'],
 
-            '@app/hooks/*': ['./src/hooks'],
-            '@app/hooks': ['./src/hooks/index'],
+            '@appHooks': ['./src/hooks'],
 
-            '@app/i18n/*': ['./src/i18n'],
-            '@app/i18n': ['./src/i18n/index'],
+            '@appI18n': ['./src/i18n'],
 
-            '@app/models/*': ['./src/models'],
-            '@app/models': ['./src/models/index'],
+            '@appModels': ['./src/models'],
 
-            '@app/navigation/*': ['./src/navigation'],
-            '@app/navigation': ['./src/navigation/index'],
+            '@appNavigation': ['./src/navigation'],
 
-            '@app/scenes/*': ['./src/scenes'],
-            '@app/scenes': ['./src/scenes/index'],
+            '@appScenes': ['./src/scenes'],
 
-            '@app/services/*': ['./src/services'],
-            '@app/services': ['./src/services/index'],
+            '@appServices': ['./src/services'],
 
-            '@app/state/*': ['./src/state'],
-            '@app/state': ['./src/state/index'],
+            '@appState': ['./src/state'],
+            '@appState/actions': ['./src/state/actions/index'],
 
-            '@app/theme/*': ['./src/theme'],
-            '@app/theme': ['./src/theme/index'],
+            '@appTheme': ['./src/theme'],
 
-            '@app/types/*': ['./src/types'],
+            '@appTypes/*': ['./src/types'],
 
-            '@app/utils/*': ['./src/utils'],
-            '@app/utils': ['./src/utils/index'],
+            '@appUtils': ['./src/utils'],
           },
           cwd: 'babelrc',
         },

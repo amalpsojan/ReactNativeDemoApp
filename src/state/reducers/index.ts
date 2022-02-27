@@ -1,7 +1,7 @@
 import {combineReducers} from '@reduxjs/toolkit';
 import {persistReducer} from 'redux-persist';
 
-import {ReduxStorage} from '@app/services';
+import {ReduxStorage} from '@appServices';
 
 import accountReducer from './account';
 import settingsReducer from './settings';

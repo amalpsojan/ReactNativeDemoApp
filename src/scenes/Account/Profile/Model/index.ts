@@ -1,6 +1,6 @@
-import {BaseModel} from '@app/models';
+import {AuthModel} from '@appModels';
 
-class ProfilenModel extends BaseModel {
+class ProfilenModel extends AuthModel {
   getUser = (): string => {
     return 'hello';
   };

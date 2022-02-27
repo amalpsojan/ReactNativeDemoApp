@@ -1,9 +1,9 @@
 import React, {memo, Dispatch, SetStateAction, useRef} from 'react';
 import {StyleSheet, View, SafeAreaView} from 'react-native';
 
-import {Button, Text, Input} from '@app/elements';
+import {Button, Text, Input} from '@appElements';
 
-import {useTheme} from '@app/hooks';
+import {useTheme} from '@appHooks';
 
 interface ILoginUI {
   email: string;

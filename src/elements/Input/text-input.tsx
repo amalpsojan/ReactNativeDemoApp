@@ -10,9 +10,9 @@ import {
   ViewProps,
 } from 'react-native';
 
-import {useTheme} from '@app/hooks';
+import {useTheme} from '@appHooks';
 
-import {Styles} from '@app/theme';
+import {Styles} from '@appTheme';
 
 interface ITextInput extends TextInputProps {
   containerStyle?: StyleProp<ViewStyle>;
