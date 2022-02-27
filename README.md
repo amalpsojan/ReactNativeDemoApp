@@ -1,7 +1,11 @@
 # React Native Demo App
 
 ## Architecture
-This project is using [MVVM Architecture](https://www.expertappdevs.com/blog/react-native-with-mvvm)
+This project is using MVVM + Redux Architecture
+
+#### [React Native with MVVM](https://www.expertappdevs.com/blog/react-native-with-mvvm)
+
+#### [Clean MVVM with React and React Hooks](https://paulallies.medium.com/clean-mvvm-with-react-and-react-hooks-ebc37b22542f)
 
 ## Dependencies
 

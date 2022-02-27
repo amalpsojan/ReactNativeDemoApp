@@ -3,12 +3,14 @@ import {StyleSheet, View, Image, SafeAreaView} from 'react-native';
 import {Button, Text} from '@appElements';
 
 import {useTheme} from '@appHooks';
+import {User} from '@appTypes/account/models';
 
 interface IProfileUI {
   onLogout: () => void;
+  profile: User;
 }
 
-const ProfileView = ({onLogout}: IProfileUI) => {
+const ProfileView = ({onLogout, profile}: IProfileUI) => {
   const {colors} = useTheme();
 
   return (
@@ -37,7 +39,7 @@ const ProfileView = ({onLogout}: IProfileUI) => {
           />
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text>Mobile developer</Text>
+              <Text>{profile.name}</Text>
 
               <Button title={'Option 1'} onPress={() => {}} />
               <Button title={'Logout'} onPress={onLogout} />

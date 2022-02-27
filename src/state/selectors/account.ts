@@ -3,11 +3,17 @@ import {createSelector} from '@reduxjs/toolkit';
 
 const selectAccount = (state: AccountState) => state.account;
 
-const selectUser = createSelector(selectAccount, account => ({
+const selectAuthUser = createSelector(selectAccount, account => ({
   id: account.id,
   name: account.name,
   username: account.username,
   token: account.token,
 }));
 
-export default {selectUser};
+const selectUser = createSelector(selectAccount, account => ({
+  id: account.id,
+  name: account.name,
+  username: account.username,
+}));
+
+export default {selectUser, selectAuthUser};

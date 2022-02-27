@@ -9,7 +9,7 @@ type User = _User & {
 };
 
 const useAuth = () => {
-  const user: User = useSelector(AccountSelector.selectUser);
+  const user: User = useSelector(AccountSelector.selectAuthUser);
 
   const login = (args: LoginArgs) => {
     Authentication.Basic.login({

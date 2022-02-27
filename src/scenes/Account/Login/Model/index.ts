@@ -1,14 +1,6 @@
-import {BaseModel} from '@appModels';
-import {Authentication} from '@appServices';
-import {LoginArgs} from '@appTypes/account/api';
+import {AuthModel} from '@appModels';
 
-class LoginModel extends BaseModel {
-  login = (args: LoginArgs): void => {
-    Authentication.Basic.login({
-      args,
-    });
-  };
-
+class LoginModel extends AuthModel {
   setLoginError = (): void => {};
 }
 

@@ -1,9 +1,9 @@
 import React, {memo} from 'react';
 import LoginViewController from './ViewController';
-import LoginViewModel from './ViewModel';
+import useViewModel from './ViewModel';
 
 const Login = () => {
-  const viewModel = new LoginViewModel();
+  const viewModel = useViewModel();
 
   return <LoginViewController viewModel={viewModel} />;
 };

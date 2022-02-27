@@ -1,16 +1,14 @@
 import {LoginArgs} from '@appTypes/account/api';
 import LoginModel from '../Model';
 
-class LoginViewModel {
-  model: LoginModel;
+const LoginViewModel = () => {
+  const model = new LoginModel();
 
-  constructor() {
-    this.model = new LoginModel();
-  }
-
-  login = (args: LoginArgs): void => {
-    this.model.login(args);
+  const login = (args: LoginArgs): void => {
+    model.login(args);
   };
-}
+
+  return {login};
+};
 
 export default LoginViewModel;

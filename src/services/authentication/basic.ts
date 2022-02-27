@@ -25,6 +25,8 @@ const login = ({
   });
 };
 
-const logout = () => {};
+const logout = () => {
+  store.dispatch(Account.removeUser());
+};
 
 export default {login, logout};
