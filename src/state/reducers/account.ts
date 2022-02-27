@@ -1,4 +1,4 @@
-import {ReducerAction} from '@app/types/other';
+import {ReducerAction} from '@appTypes/other';
 import {Account} from '../types';
 
 const initialState = {
@@ -13,10 +13,10 @@ const accountReducer = (state = initialState, action: ReducerAction) => {
     case Account.saveUser:
       return {
         ...state,
-        token: action.paylaod.token,
-        id: action.paylaod.id,
-        name: action.paylaod.name,
-        username: action.paylaod.username,
+        token: action.payload.token,
+        id: action.payload.id,
+        name: action.payload.name,
+        username: action.payload.username,
       };
 
     case Account.removeUser:

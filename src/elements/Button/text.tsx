@@ -6,9 +6,9 @@ import {
   ViewStyle,
   StyleProp,
 } from 'react-native';
-import {useTheme} from '@app/hooks';
-import {Text} from '@app/elements';
-import {Styles} from '@app/theme';
+import {useTheme} from '@appHooks';
+import {Text} from '@appElements';
+import {Styles} from '@appTheme';
 
 export interface IButton extends PressableProps {
   style?: StyleProp<ViewStyle>;

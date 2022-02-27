@@ -1,9 +1,11 @@
 import React from 'react';
 
-import {Login} from '@app/scenes';
+import {Login, Profile} from '@appScenes';
+import {useAuth} from '@appHooks';
 
 const Root = () => {
-  return <Login />;
+  const {user} = useAuth();
+  return user ? <Profile /> : <Login />;
 };
 
 export default Root;

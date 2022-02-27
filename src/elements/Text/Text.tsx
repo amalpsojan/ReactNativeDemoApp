@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text as RNText, TextProps} from 'react-native';
-import {useTheme} from '@app/hooks';
+import {useTheme} from '@appHooks';
 
 interface IText extends TextProps {
   innerRef?: any;

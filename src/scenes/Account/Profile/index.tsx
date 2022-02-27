@@ -1,9 +1,9 @@
 import React, {memo} from 'react';
 import ProfileViewController from './ViewController';
-import ProfileViewModel from './ViewModel';
+import useViewModel from './ViewModel';
 
 const Profile = () => {
-  const viewModel = new ProfileViewModel();
+  const viewModel = useViewModel();
 
   return <ProfileViewController viewModel={viewModel} />;
 };

@@ -1,22 +1,6 @@
-import {Account} from '@app/api';
-import {BaseModel} from '@app/models';
-import {LoginArgs} from '@app/types/account/api';
+import {AuthModel} from '@appModels';
 
-class LoginModel extends BaseModel {
-  login = (args: LoginArgs): void => {
-    Account.login({
-      args,
-      onSuccess: ({data: {token = false}}) => {
-        if (token) {
-          this.saveUser(token);
-        }
-      },
-      onError: error => {
-        console.log('login onError', error);
-      },
-    });
-  };
-
+class LoginModel extends AuthModel {
   setLoginError = (): void => {};
 }
 

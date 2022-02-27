@@ -1,15 +1,16 @@
 import ProfilenModel from '../Model';
+import {useProfile} from '@appHooks';
 
-class ProfileViewModel {
-  model: ProfilenModel;
+const ProfileViewModel = () => {
+  const model = new ProfilenModel();
 
-  constructor() {
-    this.model = new ProfilenModel();
-  }
+  const {profile} = useProfile();
 
-  getUser = (): string => {
-    return this.model.getUser();
+  const logout = (): void => {
+    model.logout();
   };
-}
+
+  return {logout, profile};
+};
 
 export default ProfileViewModel;
