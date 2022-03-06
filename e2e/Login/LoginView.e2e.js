@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('MyDemoApp E2E Testing', () => {
   beforeAll(async () => {
     await device.launchApp();
