@@ -31,8 +31,6 @@ module.exports = function (api) {
 
             '@appI18n': ['./src/i18n'],
 
-            '@appModels': ['./src/models'],
-
             '@appNavigation': ['./src/navigation'],
 
             '@appScenes': ['./src/scenes'],

@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
-import ProfileViewController from './ViewController';
+import ProfileView from './View';
 import useViewModel from './ViewModel';
 
 const Profile = () => {
   const viewModel = useViewModel();
 
-  return <ProfileViewController viewModel={viewModel} />;
+  return <ProfileView viewModel={viewModel} />;
 };
 
 export default memo(Profile);

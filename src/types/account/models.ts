@@ -13,3 +13,5 @@ export type RegisterUser = User & {
 export type Users = {
   people: User[];
 };
+
+export type ID = string;

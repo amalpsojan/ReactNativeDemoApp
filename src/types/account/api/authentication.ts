@@ -1,13 +1,31 @@
-import {RequestConfig, RequestResponse} from '@appApi/client';
-import {User, UserToken} from './models';
+import {RequestConfig, RequestResponse, RequestError} from '@appApi/client';
+import {User, UserToken} from '../models';
 
 export type LoginArgs = {
   username: string;
   password: string;
 };
 
+export type LoginRequestArgs = LoginArgs;
+
 export type LoginRequest = RequestConfig & {
-  args: LoginArgs;
+  args: LoginRequestArgs;
+};
+
+type LoginRequestError = {
+  username: string;
+  password: string;
+  message: string;
+};
+
+type LoginRequestSuccess = User & {
+  token: UserToken;
+};
+
+export type LoginSuccess = {data: LoginRequestSuccess};
+
+export type LoginError = RequestError['response'] & {
+  data: LoginRequestError;
 };
 
 export type LogoutRequest = RequestConfig & {};
@@ -17,12 +35,6 @@ export type ProfileRequest = RequestConfig & {};
 export type RefreshTokenRequest = RequestConfig & {};
 
 export type RegisterRequest = RequestConfig & {};
-
-export type LoginRequestError = {
-  username: string;
-  password: string;
-  message: string;
-};
 
 export type ProfileRequestError = {
   message: string;

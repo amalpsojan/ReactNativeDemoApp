@@ -1,14 +1,11 @@
-import {LoginArgs} from '@appTypes/account/api';
-import LoginModel from '../Model';
+import {useAuth} from '@appHooks';
 
-const LoginViewModel = () => {
-  const model = new LoginModel();
+type LoginViewModelType = {};
 
-  const login = (args: LoginArgs): void => {
-    model.login(args);
-  };
+const LoginViewModel: LoginViewModelType = () => {
+  const {login, errors} = useAuth();
 
-  return {login};
+  return {login, errors};
 };
 
 export default LoginViewModel;

@@ -1,14 +1,8 @@
-import ProfilenModel from '../Model';
-import {useProfile} from '@appHooks';
+import {useProfile, useAuth} from '@appHooks';
 
 const ProfileViewModel = () => {
-  const model = new ProfilenModel();
-
   const {profile} = useProfile();
-
-  const logout = (): void => {
-    model.logout();
-  };
+  const {logout} = useAuth();
 
   return {logout, profile};
 };

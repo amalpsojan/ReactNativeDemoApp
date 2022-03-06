@@ -1,9 +1,11 @@
 import {
   LoginRequest,
   LogoutRequest,
-  ProfileRequest,
   RefreshTokenRequest,
-} from '@appTypes/account/api';
+} from '@appTypes/account/api/authentication';
+
+import {ProfileRequest} from '@appTypes/account/api/profile';
+
 import ApiClient from '../client';
 
 export const login = ({...config}: LoginRequest) => {

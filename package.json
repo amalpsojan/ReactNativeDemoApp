@@ -1,5 +1,5 @@
 {
-  "name": "evapp",
+  "name": "mydemoapp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,9 +7,16 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "reset-and-start": "react-native start --reset-cache",
-    "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "fix-lint": "eslint --fix ."
+    "fix-lint": "eslint --fix .",
+    "test": "jest",
+    "clean": "npx react-native-clean-project",
+    "e2e:build-ios": "detox build --configuration ios",
+    "e2e:build-android": "detox build --configuration android",
+    "e2e:run-ios": "detox test --configuration ios",
+    "e2e:run-android": "detox test --configuration android",
+    "e2e:buid-run-ios": "detox build --configuration ios && detox test --configuration ios",
+    "e2e:buid-run-android": "detox build --configuration android && detox test --configuration android"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
@@ -33,13 +40,15 @@
     "@typescript-eslint/parser": "^5.7.0",
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^4.1.0",
+    "detox": "^19.4.5",
     "eslint": "^7.14.0",
     "husky": "^7.0.4",
     "jest": "^26.6.3",
+    "jest-circus": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
+    "react-mock-lib": "git+ssh://git@github.com:amalpsojan/mock-lib.git#0.0.2",
     "react-test-renderer": "17.0.2",
-    "typescript": "^4.4.4",
-    "react-mock-lib": "git+ssh://git@github.com:amalpsojan/mock-lib.git#0.0.2"
+    "typescript": "^4.4.4"
   },
   "resolutions": {
     "@types/react": "^17"

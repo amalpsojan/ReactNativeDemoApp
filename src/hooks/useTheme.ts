@@ -1,42 +1,19 @@
 import {useColorScheme} from 'react-native';
+import Colors from '@appConfigs/colors';
 
-const useTheme = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+type Theme = {
+  colorScheme?: 'light' | 'dark';
+};
 
-  return isDarkMode ? styles.dark : styles.light;
+const useTheme = (props: Theme = {}) => {
+  //system Default
+  const defaultColorScheme = useColorScheme();
+
+  const selectedColorScheme = defaultColorScheme || 'light';
+
+  const {colorScheme = selectedColorScheme} = props;
+
+  return {colors: Colors[colorScheme]};
 };
 
 export default useTheme;
-
-const styles = {
-  dark: {
-    colors: {
-      primaryColor: '#fb5b5a',
-      secondaryColor: '',
-
-      primaryTextColor: '#ffffff',
-      secondaryTextColor: '',
-
-      placeholderTextColor: '#f5f5f5',
-
-      inputBackgroundColor: '#465881',
-
-      backgroundColor: '#003f5c',
-    },
-  },
-  light: {
-    colors: {
-      primaryColor: '#fb5b5a',
-      secondaryColor: '',
-
-      secondaryTextColor: '',
-      primaryTextColor: '#000000',
-
-      placeholderTextColor: '#003f5c',
-
-      inputBackgroundColor: '#dbdbdb',
-
-      backgroundColor: '#f5f5f5',
-    },
-  },
-};

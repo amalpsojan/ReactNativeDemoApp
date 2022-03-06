@@ -2,15 +2,24 @@ import React, {memo, Fragment} from 'react';
 import {StyleSheet, View, Image, SafeAreaView} from 'react-native';
 import {Button, Text} from '@appElements';
 
-import {useTheme} from '@appHooks';
+import {useLocale, useTheme} from '@appHooks';
 import {User} from '@appTypes/account/models';
 
 interface IProfileUI {
-  onLogout: () => void;
-  profile: User;
+  viewModel: {
+    logout: () => void;
+    profile: User;
+  };
 }
 
-const ProfileView = ({onLogout, profile}: IProfileUI) => {
+const ProfileView = ({viewModel}: IProfileUI) => {
+  const {language} = useLocale();
+  const {profile, logout} = viewModel;
+
+  const onLogout = () => {
+    logout();
+  };
+
   const {colors} = useTheme();
 
   return (
@@ -41,8 +50,8 @@ const ProfileView = ({onLogout, profile}: IProfileUI) => {
             <View style={styles.bodyContent}>
               <Text>{profile.name}</Text>
 
-              <Button title={'Option 1'} onPress={() => {}} />
-              <Button title={'Logout'} onPress={onLogout} />
+              <Button title={language('Option 1')} onPress={() => {}} />
+              <Button title={language('Logout')} onPress={onLogout} />
             </View>
           </View>
         </View>

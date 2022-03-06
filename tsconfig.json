@@ -28,9 +28,6 @@
       "@appI18n/*": ["src/i18n/*"],
       "@appI18n": ["src/i18n"],
 
-      "@appModels/*": ["src/models/*"],
-      "@appModels": ["src/models"],
-
       "@appNavigation/*": ["src/navigation/*"],
       "@appNavigation": ["src/navigation"],
 

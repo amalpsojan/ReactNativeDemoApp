@@ -1,27 +1,24 @@
 import {Account as AccountAPI} from '@appApi';
 import {Account} from '@appState/actions';
-import {LoginRequest as _LoginRequest} from '@appTypes/account/api';
+import {
+  LoginRequest as _LoginRequest,
+  // LogoutRequest as _LogoutRequest,
+  LoginSuccess,
+} from '@appTypes/account/api/authentication';
 import {WithOptional} from '@appTypes/other';
 import {store} from '@appState';
 
-type LoginRequest = WithOptional<_LoginRequest, 'onSuccess' | 'onError'>;
+type LoginRequest = WithOptional<_LoginRequest, 'onSuccess'>;
 
 //default Login actions
-const onLoginSuccess = ({data}: any) => {
+const onLoginSuccess = ({data}: LoginSuccess) => {
   store.dispatch(Account.saveUser(data));
 };
 
-const onLoginError = () => {};
-
-const login = ({
-  onSuccess = onLoginSuccess,
-  onError = onLoginError,
-  ...config
-}: LoginRequest): void => {
+const login = ({onSuccess = onLoginSuccess, ...config}: LoginRequest): void => {
   AccountAPI.login({
     ...config,
     onSuccess,
-    onError,
   });
 };
 

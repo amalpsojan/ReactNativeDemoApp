@@ -1,29 +1,39 @@
-import React, {memo, Dispatch, SetStateAction, useRef} from 'react';
+import React, {memo, useRef, useState} from 'react';
 import {StyleSheet, View, SafeAreaView} from 'react-native';
 
 import {Button, Text, Input} from '@appElements';
 
-import {useTheme} from '@appHooks';
+import {useTheme, useLocale} from '@appHooks';
 
 interface ILoginUI {
-  email: string;
-  password: string;
-  onChangeEmail: Dispatch<SetStateAction<string>>;
-  onChangePassword: Dispatch<SetStateAction<string>>;
-  onLogin: () => void;
+  viewModel: {
+    login: (value: {username: string; password: string}) => void;
+  };
 }
 
-const LoginView = ({
-  email,
-  password,
-  onChangeEmail,
-  onChangePassword,
-  onLogin,
-}: ILoginUI) => {
+const LoginView = ({viewModel}: ILoginUI) => {
   const {colors} = useTheme();
+  const {language} = useLocale();
 
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
+
+  // const [email, onChangeEmail] = useState('batman@test.com');
+  // const [password, onChangePassword] = useState('12345678');
+
+  const [email, onChangeEmail] = useState('');
+  const [password, onChangePassword] = useState('');
+
+  const {login} = viewModel;
+
+  // const {a}=errors
+
+  const onLogin = () => {
+    login({
+      username: email,
+      password,
+    });
+  };
 
   return (
     <SafeAreaView
@@ -35,38 +45,46 @@ const LoginView = ({
       <View style={[styles.container]}>
         <View>
           <Text style={[styles.logo, {color: colors.primaryColor}]}>
-            HeyAPP
+            {language('appName')}
           </Text>
         </View>
 
         <View style={styles.form}>
           <Input
+            testID="login-view-email-input"
             innerRef={emailRef}
             value={email}
-            placeholder="Email"
+            placeholder={language('Email')}
             onChangeText={onChangeEmail}
             onSubmitEditing={() => passwordRef.current.focus()}
+            // error={errors.login.username}
           />
 
           <Input
+            testID="login-view-password-input"
             innerRef={passwordRef}
             value={password}
             secureTextEntry
-            placeholder="Password"
+            placeholder={language('Password')}
             onChangeText={onChangePassword}
             onSubmitEditing={onLogin}
+            // error={errors.login.password}
           />
 
           <Button.LinkButton
-            title={'Forgot Password?'}
+            title={language('Forgot Password?')}
             textStyle={[styles.forgot, {color: colors.primaryTextColor}]}
             onPress={() => console.log('Forgot Password?..')}
           />
 
-          <Button title={'LOGIN'} onPress={onLogin} />
+          <Button
+            testID="login-view-login-button"
+            title={language('LOGIN')}
+            onPress={onLogin}
+          />
 
           <Button.LinkButton
-            title={'Signup'}
+            title={language('Signup')}
             textStyle={[{color: colors.primaryTextColor}]}
             onPress={() => console.log('SignUp..')}
           />

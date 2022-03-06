@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
-import LoginViewController from './ViewController';
+import LoginView from './View';
 import useViewModel from './ViewModel';
 
 const Login = () => {
   const viewModel = useViewModel();
 
-  return <LoginViewController viewModel={viewModel} />;
+  return <LoginView viewModel={viewModel} />;
 };
 
 export default memo(Login);
